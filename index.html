@@ -37,64 +37,6 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 .mobile-nav{display:none}.toast{position:fixed;bottom:25px;left:50%;transform:translate(-50%,20px);background:#111827;color:#fff;padding:11px 16px;border-radius:12px;opacity:0;pointer-events:none;transition:.25s;z-index:80}.toast.show{opacity:1;transform:translate(-50%,0)}
 @media(max-width:850px){.sidebar{display:none}.main{margin:0;width:100%;padding:18px 15px 85px}.stats{grid-template-columns:repeat(2,1fr)}.homegrid{grid-template-columns:1fr}.mobile-nav{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);bottom:0;left:0;right:0;height:65px;background:var(--surface);border-top:1px solid var(--line);z-index:30;padding-bottom:env(safe-area-inset-bottom)}.mobile-nav button{background:none;color:var(--muted);font-size:11px;font-weight:700}.mobile-nav button.active{color:var(--accent)}.mobile-nav b{display:block;font-size:20px;margin-bottom:2px}.top{align-items:flex-start}.title h1{font-size:25px}.formgrid{grid-template-columns:1fr}.field.full{grid-column:auto}.flash,.flash-inner{min-height:330px}.flash-word{font-size:38px}.review-buttons{grid-template-columns:1fr}.bar-row{grid-template-columns:75px 1fr 35px}}
 @media(max-width:430px){.stats{gap:10px}.card{padding:15px}.actions .btn:not(.primary){display:none}.word-row{gap:9px}.row-actions .icon{width:34px;height:34px}.title p{font-size:13px}}
-
-/* iPhone & small-screen improvements */
-@media(max-width:600px){
-  html{font-size:16px;-webkit-text-size-adjust:100%}
-  body{padding-bottom:env(safe-area-inset-bottom)}
-  .main{padding:14px 12px calc(88px + env(safe-area-inset-bottom))}
-  .top{margin-bottom:16px;gap:10px;flex-direction:column}
-  .title h1{font-size:24px;line-height:1.15}
-  .title p{font-size:13px;line-height:1.4}
-  .actions{width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .actions .btn{display:block!important;width:100%;padding:11px 8px;font-size:13px}
-  .stats{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
-  .card{padding:14px;border-radius:15px}
-  .stat .num{font-size:24px}
-  .homegrid{gap:10px;margin-top:10px}
-  .hero{padding:18px}
-  .hero h2{font-size:21px}
-  .section-head{margin:18px 0 10px;align-items:center}
-  .section-head h2{font-size:17px}
-  .toolbar{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-  .toolbar .search{grid-column:1/-1;min-width:0}
-  .toolbar .select,.toolbar .btn{max-width:none!important;width:100%}
-  .word-row{padding:11px;align-items:flex-start;gap:8px;flex-wrap:wrap}
-  .word-main{width:calc(100% - 45px);flex:none}
-  .word{font-size:16px;word-break:break-word}
-  .meaning{white-space:normal;overflow:visible;font-size:13px;line-height:1.35}
-  .word-row>.pill{margin-left:45px;font-size:11px}
-  .row-actions{width:100%;margin-left:45px;justify-content:flex-end}
-  .row-actions .icon{width:36px;height:36px}
-  .modal{padding:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom))}
-  .modal-box{width:100%;max-height:94vh;border-radius:18px;padding:16px}
-  .formgrid{gap:10px}
-  .input,.select,.textarea{padding:12px;font-size:16px}
-  .modal-foot{position:sticky;bottom:-16px;background:var(--surface);padding:12px 0 calc(4px + env(safe-area-inset-bottom));margin-top:12px}
-  .modal-foot .btn{flex:1;padding:12px 8px}
-  .flash-wrap{margin:0}
-  .flash,.flash-inner{min-height:300px}
-  .face{padding:22px 14px;border-radius:20px}
-  .flash-word{font-size:34px;word-break:break-word}
-  .flash-definition{font-size:20px}
-  .review-buttons{grid-template-columns:repeat(3,1fr);gap:7px}
-  .review-buttons button{padding:13px 5px;font-size:13px}
-  .quiz-question{font-size:21px;word-break:break-word}
-  .option{padding:13px;font-size:15px}
-  .mobile-nav{height:calc(68px + env(safe-area-inset-bottom));padding-bottom:env(safe-area-inset-bottom)}
-  .mobile-nav button{font-size:9px;padding:4px 1px;line-height:1.05;overflow:hidden}
-  .mobile-nav b{font-size:18px;margin-bottom:2px}
-  .bar-row{grid-template-columns:85px 1fr 35px;font-size:13px}
-}
-@media(max-width:375px){
-  .title h1{font-size:21px}
-  .stats{grid-template-columns:1fr 1fr}
-  .card{padding:12px}
-  .actions .btn{font-size:12px}
-  .mobile-nav button{font-size:8px}
-  .flash-word{font-size:30px}
-}
-
 </style>
 </head>
 <body>
@@ -102,32 +44,32 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 <aside class="sidebar">
   <div class="logo"><span>W</span> WordNest</div>
   <nav class="nav" id="nav"></nav>
-  <div class="side-bottom"><button class="theme-btn" id="themeBtn">🌙 Dark mode 深色模式</button></div>
+  <div class="side-bottom"><button class="theme-btn" id="themeBtn">🌙 Dark mode</button></div>
 </aside>
 <main class="main">
   <div class="top">
     <div class="title"><h1 id="pageTitle">Dashboard</h1><p id="pageSub">Build your English, one word at a time.</p></div>
-    <div class="actions"><button class="btn" onclick="exportData()">Export 导出</button><button class="btn primary" onclick="openModal()">＋ Add word 添加单词</button></div>
+    <div class="actions"><button class="btn" onclick="exportData()">Export</button><button class="btn primary" onclick="openModal()">＋ Add word</button></div>
   </div>
 
   <section class="view active" id="dashboard">
     <div class="grid stats">
-      <div class="card stat"><span class="muted">Total words 单词总数</span><div class="num" id="sTotal">0</div><span class="small">in your library 词库中的单词</span></div>
-      <div class="card stat"><span class="muted">Mastered 已掌握</span><div class="num" id="sMastered">0</div><span class="small" id="sMasteredPct">0%</span></div>
-      <div class="card stat"><span class="muted">Due today 今日待复习</span><div class="num" id="sDue">0</div><span class="small">ready to review 准备复习</span></div>
-      <div class="card stat"><span class="muted">Accuracy 正确率</span><div class="num" id="sAccuracy 正确率">—</div><span class="small">from quizzes 来自测验</span></div>
+      <div class="card stat"><span class="muted">Total words</span><div class="num" id="sTotal">0</div><span class="small">in your library</span></div>
+      <div class="card stat"><span class="muted">Mastered</span><div class="num" id="sMastered">0</div><span class="small" id="sMasteredPct">0%</span></div>
+      <div class="card stat"><span class="muted">Due today</span><div class="num" id="sDue">0</div><span class="small">ready to review</span></div>
+      <div class="card stat"><span class="muted">Accuracy</span><div class="num" id="sAccuracy">—</div><span class="small">from quizzes</span></div>
     </div>
     <div class="grid homegrid">
-      <div class="card hero"><h2>Ready for a quick review? 准备快速复习？</h2><p id="heroText">Add some vocabulary, then come back here whenever you want to practice.</p><button class="btn primary" onclick="startReview()">Start review 开始复习 →</button></div>
-      <div class="card"><h3 style="margin-top:0">Your progress 学习进度</h3><div class="progress"><i id="masterBar" style="width:0%"></i></div><p class="muted small" id="masterText">0 mastered of 0 words</p><div class="section-head"><h2>Streak 连续学习</h2><span class="pill" id="streak">0 days</span></div><div class="heatmap" id="heatmap"></div></div>
+      <div class="card hero"><h2>Ready for a quick review?</h2><p id="heroText">Add some vocabulary, then come back here whenever you want to practice.</p><button class="btn primary" onclick="startReview()">Start review →</button></div>
+      <div class="card"><h3 style="margin-top:0">Your progress</h3><div class="progress"><i id="masterBar" style="width:0%"></i></div><p class="muted small" id="masterText">0 mastered of 0 words</p><div class="section-head"><h2>Streak</h2><span class="pill" id="streak">0 days</span></div><div class="heatmap" id="heatmap"></div></div>
     </div>
-    <div class="section-head"><h2>Recently added 最近添加</h2><button class="btn" onclick="showView('library')">View library 查看词库</button></div>
+    <div class="section-head"><h2>Recently added</h2><button class="btn" onclick="showView('library')">View library</button></div>
     <div class="word-list" id="recent"></div>
   </section>
 
   <section class="view" id="library">
-    <div class="toolbar"><input class="input search" id="search" placeholder="Search 搜索单词、释义、例句..." oninput="renderLibrary()"><select class="select" id="categoryFilter" style="max-width:170px" onchange="renderLibrary()"><option value="">All categories 全部分类</option></select><select class="select" id="levelFilter" style="max-width:150px" onchange="renderLibrary()"><option value="">All levels 全部等级</option><option>New 新词</option><option>Learning 学习中</option><option>Mastered 已掌握</option></select><button class="btn" onclick="openModal()">＋ Add 添加</button></div>
-    <div class="section-head"><h2 id="libraryCount">0 words</h2><div class="actions"><button class="btn" onclick="document.getElementById('fileInput').click()">Import 导入</button><button class="btn danger" onclick="clearAll()">Clear all 清空全部</button></div></div>
+    <div class="toolbar"><input class="input search" id="search" placeholder="Search words, definitions, examples..." oninput="renderLibrary()"><select class="select" id="categoryFilter" style="max-width:170px" onchange="renderLibrary()"><option value="">All categories</option></select><select class="select" id="levelFilter" style="max-width:150px" onchange="renderLibrary()"><option value="">All levels</option><option>New</option><option>Learning</option><option>Mastered</option></select><button class="btn" onclick="openModal()">＋ Add</button></div>
+    <div class="section-head"><h2 id="libraryCount">0 words</h2><div class="actions"><button class="btn" onclick="document.getElementById('fileInput').click()">Import</button><button class="btn danger" onclick="clearAll()">Clear all</button></div></div>
     <div class="word-list" id="libraryList"></div>
     <input type="file" id="fileInput" accept=".json" hidden onchange="importData(event)">
   </section>
@@ -136,10 +78,10 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
     <div class="flash-wrap">
       <div class="quiz-meta"><span id="reviewCount">0 due</span><span>Card <b id="cardNum">0</b></span></div>
       <div class="flash" id="flash" onclick="flipCard()"><div class="flash-inner">
-        <div class="face"><span class="pill" id="flashCategory 分类">Vocabulary</span><div class="flash-word" id="flashWord">—</div><p class="muted">Tap to reveal 点击翻转</p></div>
+        <div class="face"><span class="pill" id="flashCategory">Vocabulary</span><div class="flash-word" id="flashWord">—</div><p class="muted">Tap to reveal</p></div>
         <div class="face back"><span class="pill" id="flashPart">definition</span><div class="flash-definition" id="flashDef">—</div><div id="flashZh" class="muted" style="font-size:20px"></div><p class="flash-example" id="flashEx"></p></div>
       </div></div>
-      <div class="review-buttons"><button class="hard" onclick="rateCard(0)">Hard 困难</button><button class="okay" onclick="rateCard(1)">Good 一般</button><button class="easy" onclick="rateCard(2)">Easy 简单</button></div>
+      <div class="review-buttons"><button class="hard" onclick="rateCard(0)">Hard</button><button class="okay" onclick="rateCard(1)">Good</button><button class="easy" onclick="rateCard(2)">Easy</button></div>
     </div>
   </section>
 
@@ -149,53 +91,53 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 
   <section class="view" id="speaking">
     <div class="card" style="max-width:820px;margin:auto">
-      <div class="section-head" style="margin-top:0"><h2>🗣️ Speaking practice 口语练习</h2><span class="pill" id="speechSupport">Checking microphone… 正在检查麦克风…</span></div>
-      <p class="muted">Listen to the word, then say it yourself. Your browser will compare what it hears with the target word.<br>先听单词，然后自己说出来。浏览器会比较它听到的内容。</p>
+      <div class="section-head" style="margin-top:0"><h2>🗣️ Speaking practice</h2><span class="pill" id="speechSupport">Checking microphone…</span></div>
+      <p class="muted">Listen to the word, then say it yourself. Your browser will compare what it hears with the target word.</p>
       <div style="text-align:center;padding:28px 10px">
-        <div class="pill" id="speakCategory 分类">Vocabulary</div>
+        <div class="pill" id="speakCategory">Vocabulary</div>
         <div id="speakTarget" style="font-size:44px;font-weight:900;margin:14px 0 4px">—</div>
         <div id="speakZh" class="muted" style="font-size:20px"></div>
-        <button class="btn primary" style="margin-top:18px" onclick="speakCurrent()">🔊 Listen 听发音</button>
-        <button class="btn" style="margin-top:18px" id="micBtn" onclick="startPronunciation()">🎙️ I speak 我来说</button>
+        <button class="btn primary" style="margin-top:18px" onclick="speakCurrent()">🔊 Listen</button>
+        <button class="btn" style="margin-top:18px" id="micBtn" onclick="startPronunciation()">🎙️ I speak</button>
       </div>
       <div class="card" style="background:var(--surface2);box-shadow:none">
-        <div class="muted small">What the browser heard 浏览器听到的内容</div>
+        <div class="muted small">What the browser heard</div>
         <div id="heardText" style="font-size:22px;font-weight:800;margin-top:7px">—</div>
         <div id="pronResult" style="margin-top:10px;font-weight:800"></div>
       </div>
-      <div class="section-head"><h3>Pronunciation tips 发音提示</h3></div>
+      <div class="section-head"><h3>Pronunciation tips</h3></div>
       <ul class="muted">
         <li>Use a quiet place and speak clearly at a normal speed.</li>
         <li>The browser's speech recognition is an approximation, not a professional pronunciation score.</li>
         <li>If recognition isn't available, you can still use Listen to hear the target.</li>
       </ul>
       <div style="display:flex;justify-content:space-between;gap:8px;margin-top:16px">
-        <button class="btn" onclick="nextSpeaking(-1)">← Previous 上一个</button>
-        <button class="btn primary" onclick="nextSpeaking(1)">Next 下一个 →</button>
+        <button class="btn" onclick="nextSpeaking(-1)">← Previous</button>
+        <button class="btn primary" onclick="nextSpeaking(1)">Next →</button>
       </div>
     </div>
   </section>
 
   <section class="view" id="stats">
     <div class="grid stats">
-      <div class="card stat"><span class="muted">Reviews 复习次数</span><div class="num" id="stReviews">0</div></div>
-      <div class="card stat"><span class="muted">Quiz attempts 测验次数</span><div class="num" id="stAttempts">0</div></div>
-      <div class="card stat"><span class="muted">Correct answers 正确答案</span><div class="num" id="stCorrect">0</div></div>
-      <div class="card stat"><span class="muted">Best quiz 最佳成绩</span><div class="num" id="stBest">—</div></div>
+      <div class="card stat"><span class="muted">Reviews</span><div class="num" id="stReviews">0</div></div>
+      <div class="card stat"><span class="muted">Quiz attempts</span><div class="num" id="stAttempts">0</div></div>
+      <div class="card stat"><span class="muted">Correct answers</span><div class="num" id="stCorrect">0</div></div>
+      <div class="card stat"><span class="muted">Best quiz</span><div class="num" id="stBest">—</div></div>
     </div>
-    <div class="card" style="margin-top:16px"><h3>Library by level 词库等级</h3><div id="levelBars"></div></div>
-    <div class="card" style="margin-top:16px"><h3>Review activity 复习活动</h3><p class="muted small">Last 28 days 最近 28 天</p><div class="heatmap" id="bigHeat"></div></div>
+    <div class="card" style="margin-top:16px"><h3>Library by level</h3><div id="levelBars"></div></div>
+    <div class="card" style="margin-top:16px"><h3>Review activity</h3><p class="muted small">Last 28 days</p><div class="heatmap" id="bigHeat"></div></div>
   </section>
 
   <section class="view" id="settings">
     <div class="card">
-      <h2 style="margin-top:0">Settings 设置</h2>
-      <div class="section-head"><h3>Quiz length 测验题数</h3><select class="select" id="quizLength" style="max-width:180px" onchange="saveSettings()"><option>5</option><option>10</option><option>15</option><option>20</option></select></div>
-      <div class="section-head"><h3>Default quiz type 默认测验类型</h3><select class="select" id="quizType" style="max-width:230px" onchange="saveSettings()"><option value="meaning">English → Mandarin 英文 → 中文</option><option value="word">Mandarin → English 中文 → 英文</option></select></div>
-      <div class="section-head"><h3>Theme 主题</h3><button class="btn" onclick="toggleTheme()">Toggle theme 切换主题</button></div>
+      <h2 style="margin-top:0">Settings</h2>
+      <div class="section-head"><h3>Quiz length</h3><select class="select" id="quizLength" style="max-width:180px" onchange="saveSettings()"><option>5</option><option>10</option><option>15</option><option>20</option></select></div>
+      <div class="section-head"><h3>Default quiz type</h3><select class="select" id="quizType" style="max-width:230px" onchange="saveSettings()"><option value="meaning">English → Mandarin</option><option value="word">Mandarin → English</option></select></div>
+      <div class="section-head"><h3>Theme</h3><button class="btn" onclick="toggleTheme()">Toggle theme</button></div>
       <hr style="border:0;border-top:1px solid var(--line);margin:22px 0">
-      <h3>Data 数据</h3><p class="muted">Your vocabulary is stored only in this browser using localStorage.<br>你的词汇数据只保存在此浏览器中。</p><button class="btn" onclick="exportData()">Export backup 导出备份</button> <button class="btn" onclick="document.getElementById('fileInput').click()">Import backup 导入备份</button>
-      <p><button class="btn danger" onclick="clearAll()">Delete all vocabulary 删除全部词汇</button></p>
+      <h3>Data</h3><p class="muted">Your vocabulary is stored only in this browser using localStorage.</p><button class="btn" onclick="exportData()">Export backup</button> <button class="btn" onclick="document.getElementById('fileInput').click()">Import backup</button>
+      <p><button class="btn danger" onclick="clearAll()">Delete all vocabulary</button></p>
     </div>
   </section>
 </main>
@@ -203,20 +145,20 @@ button,input,textarea,select{font:inherit}button{cursor:pointer;border:0}
 <nav class="mobile-nav" id="mobileNav"></nav>
 
 <div class="modal" id="modal" onclick="if(event.target===this)closeModal()">
-<div class="modal-box"><div class="modal-head"><h2 id="modalTitle">Add word 添加单词</h2><button class="icon" onclick="closeModal()">✕</button></div>
+<div class="modal-box"><div class="modal-head"><h2 id="modalTitle">Add word</h2><button class="icon" onclick="closeModal()">✕</button></div>
 <form id="wordForm" onsubmit="saveWord(event)">
 <div class="formgrid">
-<div class="field"><label>Word 单词 *</label><input class="input" id="fWord" required placeholder="e.g. curious"></div>
-<div class="field"><label>Definition 英文释义 *</label><input class="input" id="fDef" required placeholder="wanting to know more"></div>
-<div class="field"><label>Mandarin / 中文 中文意思</label><input class="input" id="fZh" placeholder="例如：好奇的"></div>
-<div class="field"><label>Example sentence 例句</label><textarea class="textarea" id="fEx" rows="3" placeholder="She was curious about the strange sound."></textarea></div>
-<div class="field"><label>Category 分类</label><input class="input" id="fCat" placeholder="General, verbs, school..."></div>
-<div class="field"><label>Part of speech 词性</label><select class="select" id="fPart"><option>Noun</option><option>Verb</option><option>Adjective</option><option>Adverb</option><option>Phrase</option><option>Other</option></select></div>
-<div class="field"><label>Difficulty 难度</label><select class="select" id="fDiff"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
-<div class="field full"><label>Synonyms 同义词</label><input class="input" id="fSyn" placeholder="eager, inquisitive"></div>
-<div class="field full"><label>Notes 笔记</label><textarea class="textarea" id="fNotes 笔记" rows="2"></textarea></div>
+<div class="field"><label>Word *</label><input class="input" id="fWord" required placeholder="e.g. curious"></div>
+<div class="field"><label>Definition *</label><input class="input" id="fDef" required placeholder="wanting to know more"></div>
+<div class="field"><label>Mandarin / 中文</label><input class="input" id="fZh" placeholder="例如：好奇的"></div>
+<div class="field"><label>Example sentence</label><textarea class="textarea" id="fEx" rows="3" placeholder="She was curious about the strange sound."></textarea></div>
+<div class="field"><label>Category</label><input class="input" id="fCat" placeholder="General, verbs, school..."></div>
+<div class="field"><label>Part of speech</label><select class="select" id="fPart"><option>Noun</option><option>Verb</option><option>Adjective</option><option>Adverb</option><option>Phrase</option><option>Other</option></select></div>
+<div class="field"><label>Difficulty</label><select class="select" id="fDiff"><option>Beginner</option><option>Intermediate</option><option>Advanced</option></select></div>
+<div class="field full"><label>Synonyms</label><input class="input" id="fSyn" placeholder="eager, inquisitive"></div>
+<div class="field full"><label>Notes</label><textarea class="textarea" id="fNotes" rows="2"></textarea></div>
 </div>
-<div class="modal-foot"><button type="button" class="btn" onclick="closeModal()">Cancel 取消</button><button class="btn primary">Save word 保存单词</button></div>
+<div class="modal-foot"><button type="button" class="btn" onclick="closeModal()">Cancel</button><button class="btn primary">Save word</button></div>
 </form></div></div>
 <div class="toast" id="toast"></div>
 
@@ -226,7 +168,7 @@ let db=JSON.parse(localStorage.getItem(KEY)||'null')||{words:[],reviews:[],quizz
 db.words.forEach(w=>{if(w.mandarin===undefined)w.mandarin=''});
 let editId=null, reviewQueue=[], reviewIndex=0, quizState=null;
 
-const navItems=[['dashboard','⌂','Dashboard 仪表板'],['library','▤','Library 词库'],['review','◈','Review 复习'],['quiz','?','Quiz 测验'],['speaking','🗣','Speaking 口语'],['stats','▥','Stats 统计'],['settings','⚙','Settings 设置']];
+const navItems=[['dashboard','⌂','Dashboard'],['library','▤','Library'],['review','◈','Review'],['quiz','?','Quiz'],['speaking','🗣','Speaking'],['stats','▥','Stats'],['settings','⚙','Settings']];
 function init(){
   if(!db.words.length) seed();
   applyTheme(); buildNav(); renderAll(); showView('dashboard');
@@ -267,7 +209,7 @@ function renderAll(){renderDashboard();renderLibrary();renderStats()}
 function renderDashboard(){
  let total=db.words.length,master=db.words.filter(w=>w.level==='Mastered').length,due=db.words.filter(w=>w.due<=Date.now()).length;
  let correct=db.quizzes.reduce((a,q)=>a+q.correct,0),attempt=db.quizzes.reduce((a,q)=>a+q.total,0),acc=attempt?Math.round(correct/attempt*100):null;
- sTotal.textContent=total;sMastered.textContent=master;sDue.textContent=due;sAccuracy 正确率.textContent=acc===null?'—':acc+'%';
+ sTotal.textContent=total;sMastered.textContent=master;sDue.textContent=due;sAccuracy.textContent=acc===null?'—':acc+'%';
  let pct=total?Math.round(master/total*100):0;masterBar.style.width=pct+'%';masterText.textContent=`${master} mastered of ${total} words`;sMasteredPct.textContent=pct+'%';streak.textContent=calcStreak()+' days';
  heroText.textContent=total?`${due} card${due===1?' is':'s are'} ready. Keep your streak going!`:'Add some vocabulary to begin.';
  recent.innerHTML=db.words.slice().sort((a,b)=>b.created-a.created).slice(0,5).map(rowHTML).join('')||emptyHTML('No words yet. Add your first word!');
@@ -278,19 +220,19 @@ function rowHTML(w){
  return `<div class="word-row"><button class="icon ${w.favorite?'fav':''}" onclick="toggleFav('${w.id}')">${w.favorite?'★':'☆'}</button><div class="word-main"><div class="word">${esc(w.word)} <span class="pill">${esc(w.level)}</span></div><div class="meaning">${esc(w.definition)}${w.mandarin?` · ${esc(w.mandarin)}`:""}</div></div><span class="pill">${esc(w.category||'General')}</span><div class="row-actions"><button class="icon" title="Listen" onclick="speakWord('${w.id}')">🔊</button><button class="icon" onclick="openModal('${w.id}')">✎</button><button class="icon" onclick="deleteWord('${w.id}')">×</button></div></div>`
 }
 function renderLibrary(){
- let cats=[...new Set(db.words.map(w=>w.category||'General'))].sort();categoryFilter.innerHTML='<option value="">All categories 全部分类</option>'+cats.map(c=>`<option>${esc(c)}</option>`).join('');
+ let cats=[...new Set(db.words.map(w=>w.category||'General'))].sort();categoryFilter.innerHTML='<option value="">All categories</option>'+cats.map(c=>`<option>${esc(c)}</option>`).join('');
  let q=(search.value||'').toLowerCase(),cat=categoryFilter.value,lev=levelFilter.value;
  let arr=db.words.filter(w=>(!q||[w.word,w.definition,w.mandarin,w.example,w.synonyms,w.notes].join(' ').toLowerCase().includes(q))&&(!cat||w.category===cat)&&(!lev||w.level===lev));
  libraryCount.textContent=`${arr.length} word${arr.length===1?'':'s'}`;libraryList.innerHTML=arr.map(rowHTML).join('')||emptyHTML('Nothing matches your filters.');
 }
 function openModal(id){
- editId=id||null;modal.classList.add('open');modalTitle.textContent=id?'Edit word 编辑单词':'Add word';wordForm.reset();
- if(id){let w=db.words.find(x=>x.id===id);['Word','Def','Ex','Cat','Part','Diff','Syn','Notes 笔记'].forEach(()=>{});fWord.value=w.word;fDef.value=w.definition;fZh.value=w.mandarin||'';fEx.value=w.example;fCat.value=w.category;fPart.value=w.part;fDiff.value=w.difficulty;fSyn.value=w.synonyms;fNotes 笔记.value=w.notes}
+ editId=id||null;modal.classList.add('open');modalTitle.textContent=id?'Edit word':'Add word';wordForm.reset();
+ if(id){let w=db.words.find(x=>x.id===id);['Word','Def','Ex','Cat','Part','Diff','Syn','Notes'].forEach(()=>{});fWord.value=w.word;fDef.value=w.definition;fZh.value=w.mandarin||'';fEx.value=w.example;fCat.value=w.category;fPart.value=w.part;fDiff.value=w.difficulty;fSyn.value=w.synonyms;fNotes.value=w.notes}
  setTimeout(()=>fWord.focus(),50)
 }
 function closeModal(){modal.classList.remove('open');editId=null}
 function saveWord(e){e.preventDefault();let w=editId?db.words.find(x=>x.id===editId):word(fWord.value.trim(),fDef.value.trim(),fEx.value.trim(),fCat.value.trim()||'General',fPart.value,fDiff.value);
- Object.assign(w,{word:fWord.value.trim(),definition:fDef.value.trim(),mandarin:fZh.value.trim(),example:fEx.value.trim(),category:fCat.value.trim()||'General',part:fPart.value,difficulty:fDiff.value,synonyms:fSyn.value.trim(),notes:fNotes 笔记.value.trim()});
+ Object.assign(w,{word:fWord.value.trim(),definition:fDef.value.trim(),mandarin:fZh.value.trim(),example:fEx.value.trim(),category:fCat.value.trim()||'General',part:fPart.value,difficulty:fDiff.value,synonyms:fSyn.value.trim(),notes:fNotes.value.trim()});
  if(!editId)db.words.unshift(w);save();closeModal();renderAll();toast(editId?'Word updated':'Word added')}
 function deleteWord(id){if(!confirm('Delete this word?'))return;db.words=db.words.filter(w=>w.id!==id);save();renderAll();toast('Word deleted')}
 function toggleFav(id){let w=db.words.find(x=>x.id===id);w.favorite=!w.favorite;save();renderAll()}
@@ -302,7 +244,7 @@ function startReview(){
 function renderReview(){
  reviewCount.textContent=`${reviewQueue.length} due`;cardNum.textContent=reviewQueue.length?reviewIndex+1:0;flash.classList.remove('flipped');
  if(!reviewQueue.length){flashWord.textContent='All caught up!';flashDef.textContent='Come back later for more practice.';flashEx.textContent='';return}
- let w=reviewQueue[reviewIndex];flashWord.textContent=w.word;flashDef.textContent=w.definition;flashZh.textContent=w.mandarin||'';flashEx.textContent=w.example;flashCategory 分类.textContent=w.category||'Vocabulary';flashPart.textContent=w.part||'Definition';
+ let w=reviewQueue[reviewIndex];flashWord.textContent=w.word;flashDef.textContent=w.definition;flashZh.textContent=w.mandarin||'';flashEx.textContent=w.example;flashCategory.textContent=w.category||'Vocabulary';flashPart.textContent=w.part||'Definition';
 }
 function flipCard(){if(reviewQueue.length)flash.classList.toggle('flipped')}
 function rateCard(r){
@@ -337,7 +279,7 @@ function startSpeaking(){
   if(SpeechRecognition) speechSupport.style.color='var(--good)';
 }
 function renderSpeaking(){
-  let w=db.words[speechIndex];speakTarget.textContent=w.word;speakZh.textContent=w.mandarin||w.definition;speakCategory 分类.textContent=w.category||'Vocabulary';heardText.textContent='—';pronResult.textContent='';
+  let w=db.words[speechIndex];speakTarget.textContent=w.word;speakZh.textContent=w.mandarin||w.definition;speakCategory.textContent=w.category||'Vocabulary';heardText.textContent='—';pronResult.textContent='';
 }
 function speakCurrent(){if(!db.words.length)return;speakWord(db.words[speechIndex].id)}
 function speakWord(id){
@@ -387,7 +329,7 @@ function calcStreak(){let days=new Set(db.reviews.map(r=>new Date(r.date).toDate
 function exportData(){let blob=new Blob([JSON.stringify(db,null,2)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='wordnest-backup.json';a.click();URL.revokeObjectURL(a.href);toast('Backup exported')}
 function importData(e){let file=e.target.files[0];if(!file)return;let r=new FileReader();r.onload=()=>{try{let x=JSON.parse(r.result);if(!x.words||!Array.isArray(x.words))throw 0;db=x;save();renderAll();toast('Backup imported')}catch{alert('That file is not a valid WordNest backup.')}};r.readAsText(file);e.target.value=''}
 function toggleTheme(){db.settings.theme=db.settings.theme==='dark'?'light':'dark';save();applyTheme()}
-function applyTheme(){document.documentElement.dataset.theme=db.settings.theme;themeBtn.textContent=db.settings.theme==='dark'?'☀️ Light mode 浅色模式':'🌙 Dark mode 深色模式'}
+function applyTheme(){document.documentElement.dataset.theme=db.settings.theme;themeBtn.textContent=db.settings.theme==='dark'?'☀️ Light mode':'🌙 Dark mode'}
 function saveSettings(){db.settings.quizLength=Number(quizLength.value);db.settings.quizType=quizType.value;save();toast('Settings saved')}
 function shuffle(a){return a.map(x=>[Math.random(),x]).sort((a,b)=>a[0]-b[0]).map(x=>x[1])}
 function esc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
